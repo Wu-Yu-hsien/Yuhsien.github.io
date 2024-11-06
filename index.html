@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yu-Hsien Wu's Portfolio</title>
+    <!-- Include the p5.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 <body>
     <h1>Welcome to My Portfolio</h1>
@@ -14,5 +16,66 @@
         <li><a href="project3.html">Sleep Data Research (R)</a></li>
         <li><a href="project4.html">UI/UX Reports (The Met, WebMD)</a></li>
     </ul>
+    
+    <h2>Interactive Mouse Illustration</h2>
+    <p>Check out this interactive mouse illustration:</p>
+
+    <!-- Add p5.js sketch directly here -->
+    <script>
+        // Setup function runs one time (initializer)
+        function setup() {
+            createCanvas(600, 600);
+        }
+
+        // Draw function runs continuously
+        function draw() {
+            background(255, 255, 204);
+            fill(96, 96, 96);
+            circle(300, 300, 400);
+
+            stroke(0);
+            fill(192, 192, 192);
+            circle(150, 150, 100);
+
+            stroke(0);
+            fill(192, 192, 192);
+            circle(450, 150, 100);
+
+            stroke(96);
+            fill(96, 96, 96);
+            ellipse(300, 450, 400);
+
+            fill(255);
+            stroke(0);
+            ellipse(width / 2, height / 2 + 20, 140, 100);
+
+            // Eyes
+            fill(0);
+            stroke(0);
+            circle(200, 200, 50);
+            circle(400, 200, 50);
+
+            textSize(20);
+            fill(0);
+            text(mouseX + ',' + mouseY, mouseX, mouseY);
+
+            // Pupils
+            let leftPupilX = 200;
+            let leftPupilY = 200;
+
+            let rightPupilX = 400;
+            let rightPupilY = 200;
+
+            leftPupilX = map(mouseX, 0, width, leftPupilX - 20, leftPupilX + 20);
+            leftPupilY = map(mouseY, 0, width, leftPupilY - 20, leftPupilY + 10);
+            rightPupilX = map(mouseX, 0, width, rightPupilX - 20, rightPupilX + 20);
+            rightPupilY = map(mouseY, 0, width, rightPupilY + 10);
+
+            fill(255);
+            stroke(255);
+            circle(leftPupilX, leftPupilY, 10);
+            circle(rightPupilX, rightPupilY, 10);
+        }
+    </script>
 </body>
 </html>
